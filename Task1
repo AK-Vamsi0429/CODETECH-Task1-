@@ -1,3 +1,4 @@
+VERILOG Code
 // alu.v
 module ALU (
     input  [3:0] A,
@@ -19,6 +20,8 @@ always @(*) begin
 end
 
 endmodule
+
+TEST BENCH :
 // tb_alu.v
 `timescale 1ns / 1ps
 module tb_ALU;
@@ -60,3 +63,11 @@ initial begin
 end
 
 endmodule
+OUTPUT:
+
+Time: 0 | A=0101 B=0011 Sel=000 => Out=1000 Carry=0   // ADD
+Time: 10 | A=0101 B=0001 Sel=001 => Out=0100 Carry=0  // SUB
+Time: 20 | A=1100 B=1010 Sel=010 => Out=1000 Carry=x  // AND
+Time: 30 | A=1100 B=1010 Sel=011 => Out=1110 Carry=x  // OR
+Time: 40 | A=1100 B=xxxx Sel=100 => Out=0011 Carry=x  // NOT A
+
